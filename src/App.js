@@ -11,18 +11,11 @@ class App extends React.Component {
     };
 
     this.menuHandler = this.menuHandler.bind(this);
-    this.menuCancelHandler = this.menuCancelHandler.bind(this);
   }
 
   menuHandler() {
     this.setState({
-      menu: true,
-    });
-  }
-
-  menuCancelHandler() {
-    this.setState({
-      menu: false,
+      menu: !this.state.menu,
     });
   }
 
@@ -73,7 +66,7 @@ class App extends React.Component {
             <div className="menu-container">
               <NavLink
                 className="menu-item"
-                onClick={this.menuCancelHandler}
+                onClick={this.menuHandler}
                 exact
                 to="/"
               >
@@ -81,7 +74,7 @@ class App extends React.Component {
               </NavLink>
               <NavLink
                 className="menu-item"
-                onClick={this.menuCancelHandler}
+                onClick={this.menuHandler}
                 exact
                 to="/about"
               >
@@ -89,7 +82,7 @@ class App extends React.Component {
               </NavLink>
               <NavLink
                 className="menu-item"
-                onClick={this.menuCancelHandler}
+                onClick={this.menuHandler}
                 exact
                 to="/project"
               >
