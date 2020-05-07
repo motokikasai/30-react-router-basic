@@ -11,11 +11,18 @@ class App extends React.Component {
     };
 
     this.menuHandler = this.menuHandler.bind(this);
+    this.menuCancelHandler = this.menuCancelHandler.bind(this);
   }
 
   menuHandler() {
     this.setState({
       menu: true,
+    });
+  }
+
+  menuCancelHandler() {
+    this.setState({
+      menu: false,
     });
   }
 
@@ -40,28 +47,52 @@ class App extends React.Component {
 
               <Switch>
                 <Route exact path="/">
-                  <h1>home</h1>
+                  <div className="content">
+                    <h1>home</h1>
+                  </div>
                 </Route>
                 <Route path="/about">
-                  <h1>about</h1>
+                  <div className="content">
+                    <h1>about</h1>
+                  </div>
                 </Route>
                 <Route path="/project">
-                  <h1>project</h1>
+                  <div className="content">
+                    <h1>project</h1>
+                  </div>
                 </Route>
                 <Route>
-                  <h1>404</h1>
+                  <div className="error-page">
+                    <div>Not Found...</div>
+                    <h2>¯\_(ツ)_/¯</h2>
+                  </div>
                 </Route>
               </Switch>
             </div>
           ) : (
             <div className="menu-container">
-              <NavLink exact to="/">
+              <NavLink
+                className="menu-item"
+                onClick={this.menuCancelHandler}
+                exact
+                to="/"
+              >
                 Home
               </NavLink>
-              <NavLink exact to="/about">
+              <NavLink
+                className="menu-item"
+                onClick={this.menuCancelHandler}
+                exact
+                to="/about"
+              >
                 About
               </NavLink>
-              <NavLink exact to="/project">
+              <NavLink
+                className="menu-item"
+                onClick={this.menuCancelHandler}
+                exact
+                to="/project"
+              >
                 Project
               </NavLink>
             </div>
